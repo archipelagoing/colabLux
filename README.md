@@ -1,223 +1,200 @@
-🚀 Colab++
+# 🚀 Colab++
 
-Colab++ turns Google Colab into a real AI-native IDE by making every Gemini edit documented, version-controlled, and project-aware.
+> **Colab++ turns Google Colab into a real AI-native IDE by making every Gemini edit documented, version-controlled, and project-aware.**
 
 Colab++ adds the missing engineering layer to AI-assisted notebooks.
 
-🧠 Why Colab++?
+---
+
+## 🧠 Why Colab++?
 
 Gemini can rewrite your notebook in seconds — but when it does:
 
-There is no changelog
+- There is no changelog  
+- No commit history  
+- No accountability  
+- No task tracking  
+- No sense of project progress  
 
-No commit history
-
-No accountability
-
-No task tracking
-
-No sense of project progress
-
-You get AI-generated code with zero engineering discipline.
+You get **AI-generated code with zero engineering discipline.**
 
 Colab++ fixes that.
 
-✨ What Colab++ Does
+---
+
+## ✨ What Colab++ Does
 
 Colab++ adds four critical layers on top of Google Colab:
 
-Layer	What it provides
-📝 Change Tracking	Every Gemini edit is documented
-🧬 Version Control	Every Accept creates a real commit
-🧠 Project Memory	Tasks, progress, and history persist
-🧭 Developer UX	TOC, session summaries, status
-🧩 System Architecture
-┌───────────────────────────────┐
-│        Google Colab UI         │
-│  (Gemini, cells, run buttons)  │
-└───────────────┬───────────────┘
-                │
-                ▼
-┌───────────────────────────────┐
-│   Colab++ Chrome Extension    │
-│                               │
-│ • Detect Gemini "Accept"       │
-│ • Capture before/after state  │
-│ • Insert changelog + TOC       │
-│ • Show project status panel   │
-└───────────────┬───────────────┘
-                │
-                ▼
-┌───────────────────────────────┐
-│   Colab++ AI Orchestrator      │
-│           (Python)            │
-│                               │
-│ • Diff analysis                │
-│ • Change summarization         │
-│ • Commit message generation    │
-│ • Task extraction              │
-│ • Project completion scoring  │
-└───────────────┬───────────────┘
-                │
-                ▼
-┌───────────────────────────────┐
-│   Version Control + Tasks     │
-│                               │
-│ • GitHub commits               │
-│ • Changelog                    │
-│ • Issues / TODOs               │
-│ • Project state                │
-└───────────────────────────────┘
+| Layer | What it provides |
+|------|----------------|
+| 📝 **Change Tracking** | Every Gemini edit is documented |
+| 🧬 **Version Control** | Every Accept creates a real commit |
+| 🧠 **Project Memory** | Tasks, progress, and history persist |
+| 🧭 **Developer UX** | TOC, session summaries, status |
 
-🔥 Core Features (MVP)
-🧾 Automatic Gemini Changelog
+---
 
+## 🧩 System Architecture
++-------------------------------+  <br>
+|        Google Colab UI         |<br>
+|--------------------------------|<br>
+|   (Gemini, cells, run buttons) |<br>
++-------------------------------+<br>
+           <br>     v <br>
+           <br>     v<br>
+            <br>    v<br>
++-------------------------------+ <br>
+|     Colab++ Chrome Extension  | <br>
+|--------------------------------|<br>
+|  - Detect Gemini "Accept"      |<br>
+|  - Capture before/after state  |<br>
+|  - Insert changelog + TOC      |<br>
+|  - Show project status panel   |<br>
++-------------------------------+<br>
+                v<br>
+                v<br>
++-------------------------------+<br>
+|      Colab++ AI Orchestrator  |<br>
+|           (Python)            |<br>
+|--------------------------------|<br>
+|  - Diff analysis               |<br>
+|  - Change summarization        |<br>
+|  - Commit message generation   |<br>
+|  - Task extraction             |<br>
+|  - Project completion scoring  |<br>
++-------------------------------+<br>
+                v<br>
+                v<br>
++-------------------------------+<br>
+|     Version Control & Tasks   |<br>
+|--------------------------------|<br>
+|  - GitHub commits              |<br>
+|  - Changelog                   |<br>
+|  - Issues / TODOs              |<br>
+|  - Project state               |<br>
++-------------------------------+<br>
+
+
+
+
+
+---
+
+## 🔥 Core Features (MVP)
+
+### 🧾 Automatic Gemini Changelog
 Every Gemini change is recorded as:
 
-[GEMINI 1.5 PRO] [2026-02-04 13:27]
-Refactored BM25 scoring to use candidate TF and skip missing terms
+`[GEMINI 1.5 PRO] [2026-02-04 13:27]
+Refactored BM25 scoring to use candidate TF and skip missing terms`
 
+Stored in a dedicated **“Gemini Changelog”** cell at the top of the notebook.
 
-Stored in a dedicated “Gemini Changelog” cell at the top of the notebook.
+---
 
-🔒 Forced Version Control
+### 🔒 Forced Version Control
+When you click **Accept**:
 
-When you click Accept:
-
-Colab++ captures the notebook
-
-Strips outputs & noise
-
-Generates a commit message
-
-Commits to GitHub automatically
+1. Colab++ captures the notebook  
+2. Strips outputs & noise  
+3. Generates a commit message  
+4. Commits to GitHub automatically  
 
 No undocumented AI changes. Ever.
 
-🧠 Project Awareness
+---
 
+### 🧠 Project Awareness
 Colab++ scans for:
-
-TODO
-
-DONE
-
-NEXT
-
-BLOCKED
+- `TODO`
+- `DONE`
+- `NEXT`
+- `BLOCKED`
 
 Then generates:
+- What’s complete
+- What’s left
+- Next session priorities
+- % project completion
 
-What’s complete
+---
 
-What’s left
-
-Next session priorities
-
-% project completion
-
-📚 Table of Contents
-
+### 📚 Table of Contents
 One click generates a:
+- Notebook-wide TOC  
+- With links to cells  
+- Using persistent anchors  
 
-Notebook-wide TOC
+---
 
-With links to cells
+## 🛠 Tech Stack
 
-Using persistent anchors
+### Frontend
+- Chrome Extension (Manifest V3)
+- JavaScript
+- MutationObserver
+- Chrome Side Panel API
 
-🛠 Tech Stack
-Frontend
+### AI + Backend
+- Python
+- FastAPI
+- Gemini / OpenAI APIs
+- `nbformat`
+- `difflib`
 
-Chrome Extension (Manifest V3)
+### Version Control
+- GitHub REST API (MVP)
+- Local Git Bridge (future)
 
-JavaScript
+---
 
-MutationObserver
+## 🗺 Roadmap
 
-Chrome Side Panel API
+### Phase 1 — Core Loop
+- [ ] Detect Gemini “Accept”
+- [ ] Capture notebook before & after
+- [ ] Generate change summary
+- [ ] Insert changelog cell
+- [ ] Sanitize notebook
+- [ ] Commit to GitHub
 
-AI + Backend
+### Phase 2 — Project Intelligence
+- [ ] Extract TODO / DONE / NEXT
+- [ ] Compute project completion %
+- [ ] Generate session summary
+- [ ] Render progress panel
 
-Python
+### Phase 3 — UX
+- [ ] TOC generator
+- [ ] Cell anchors
+- [ ] Status sidebar
+- [ ] One-click session report
 
-FastAPI
+---
 
-Gemini / OpenAI APIs
-
-nbformat
-
-difflib
-
-Version Control
-
-GitHub REST API (MVP)
-
-Local Git Bridge (future)
-
-🗺 Roadmap
-Phase 1 — Core Loop
-
- Detect Gemini “Accept”
-
- Capture notebook before & after
-
- Generate change summary
-
- Insert changelog cell
-
- Sanitize notebook
-
- Commit to GitHub
-
-Phase 2 — Project Intelligence
-
- Extract TODO / DONE / NEXT
-
- Compute project completion %
-
- Generate session summary
-
- Render progress panel
-
-Phase 3 — UX
-
- TOC generator
-
- Cell anchors
-
- Status sidebar
-
- One-click session report
-
-👥 Who Should Join
+## 👥 Who Should Join
 
 We’re looking for:
-
-Chrome extension engineers
-
-Python / FastAPI devs
-
-ML & NLP people
-
-Systems thinkers
+- Chrome extension engineers  
+- Python / FastAPI devs  
+- ML & NLP people  
+- Systems thinkers  
 
 If you care about:
-
-AI + reproducibility
-
-AI + engineering discipline
-
-AI + collaboration
+- AI + reproducibility  
+- AI + engineering discipline  
+- AI + collaboration  
 
 This project is for you.
 
-🌍 Why This Matters
+---
+
+## 🌍 Why This Matters
 
 LLMs are rewriting code faster than humans can reason about it.
 
 Colab++ ensures:
-
-What the AI did, why it did it, and how the project evolved are never lost.
+> **What the AI did, why it did it, and how the project evolved are never lost.**
 
 This is the missing infrastructure for AI-native development.
